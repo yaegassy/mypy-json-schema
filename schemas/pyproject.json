@@ -500,7 +500,7 @@
       },
       "properties": {
         "mypy": {
-          "$ref": "https://raw.githubusercontent.com/yaegassy/mypy-json-schema/schemas/mypy.json"
+          "$ref": "https://raw.githubusercontent.com/yaegassy/mypy-json-schema/master/schemas/mypy.json"
         },
         "ruff": {
           "$ref": "https://json.schemastore.org/ruff.json"
