@@ -35,7 +35,7 @@ Here is an example of a configuration for the language client I am using. Please
             "associations": {
               "^(.*(/|\\\\)\\.?pyproject\\.toml|\\.?pyproject\\.toml)$": "https://raw.githubusercontent.com/yaegassy/mypy-json-schema/master/schemas/pyproject.json"
             }
-          },
+          }
         }
       }
     }
