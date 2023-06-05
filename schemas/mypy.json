@@ -993,7 +993,7 @@
       }
     },
     "verbosity": {
-      "description": "",
+      "description": "Controls how much debug output will be generated. Higher numbers are more verbose.",
       "type": ["integer", "null"],
       "items": {
         "type": "integer"
@@ -2000,7 +2000,7 @@
             }
           },
           "verbosity": {
-            "description": "",
+            "description": "Controls how much debug output will be generated. Higher numbers are more verbose.",
             "type": ["integer", "null"],
             "items": {
               "type": "integer"
