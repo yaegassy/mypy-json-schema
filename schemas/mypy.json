@@ -29,7 +29,7 @@
     },
     "modules": {
       "description": "A comma-separated list of packages which should be checked by mypy if none are given on the command line. Mypy will not recursively type check any submodules of the provided module.\n\nThis option may only be set in the global section ([mypy]).",
-      "type": ["array", "null"],
+      "type": ["string", "array", "null"],
       "items": {
         "type": "string"
       },
@@ -1036,7 +1036,7 @@
           },
           "modules": {
             "description": "A comma-separated list of packages which should be checked by mypy if none are given on the command line. Mypy will not recursively type check any submodules of the provided module.\n\nThis option may only be set in the global section ([mypy]).",
-            "type": ["array", "null"],
+            "type": ["string", "array", "null"],
             "items": {
               "type": "string"
             },
