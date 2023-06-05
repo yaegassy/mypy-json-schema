@@ -1,0 +1,20 @@
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.poetry]
+name = "dummy"
+version = "0.0.1"
+description = "dummy"
+authors = ["testman <testman@example.com>"]
+readme = "README.md"
+homepage = "https://example.com/dummy"
+repository = "https://example.com/dummy"
+include = ["README.md"]
+license = "MIT"
+packages = [{include = "dummy"}]
+
+[tool.poetry.dependencies]
+python = "^3.11"
+
+[tool.mypy]
