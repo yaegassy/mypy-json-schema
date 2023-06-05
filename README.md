@@ -6,6 +6,10 @@ This is the JSON schema for "mypy" (`[tool.mypy]`) specifically designed for the
 
 We have configured it to reference the JSON schema for mypy in this repository based on the `pyproject.json` in the [Schema Store](https://www.schemastore.org).
 
+## DEMO
+
+https://github.com/yaegassy/mypy-json-schema/assets/188642/27f882e4-4ba6-4e3d-bf98-40d9c7a1cc5d
+
 ## Usage
 
 ### Editor Integration
