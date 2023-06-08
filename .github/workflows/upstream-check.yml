@@ -1,0 +1,17 @@
+name: upstream-check
+
+on: 
+  schedule:
+    - cron: "0 15 * * 1"
+  workflow_dispatch:
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: denoland/setup-deno@v1
+        with:
+          deno-version: v1.x
+      - run: deno run -A scripts/mypy.ts check
+      - run: deno run -A scripts/pyproject.ts check
