@@ -1,0 +1,10 @@
+{
+  "tsserver.enable": false,
+  "deno.enable": true,
+  "deno.lint": true,
+  "deno.unstable": true,
+  "prettier.disableLanguages": [
+    "typescript",
+    "javascript"
+  ]
+}

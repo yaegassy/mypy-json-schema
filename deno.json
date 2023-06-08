@@ -1,0 +1,11 @@
+{
+  "tasks": {
+    "download": "deno task mypy_download && deno task pyproject_download",
+    "mypy_download": "deno run -A scripts/mypy.ts download",
+    "pyproject_download": "deno run -A scripts/pyproject.ts download",
+    "check": "deno task mypy_check && deno task pyproject_check",
+    "mypy_check": "deno run -A scripts/mypy.ts check",
+    "pyproject_check": "deno run -A scripts/pyproject.ts check",
+    "generate": "deno run -A scripts/pyproject.ts generate"
+  }
+}
