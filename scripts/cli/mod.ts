@@ -1,4 +1,4 @@
-import * as path from "https://deno.land/std@0.126.0/path/mod.ts";
+import { path } from "../../deps.ts";
 
 import { fetchContent, isDiff, saveContent } from "../common/mod.ts";
 
