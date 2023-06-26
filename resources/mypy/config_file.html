@@ -4,10 +4,9 @@
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <meta name="color-scheme" content="light dark"><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 <link rel="index" title="Index" href="genindex.html" /><link rel="search" title="Search" href="search.html" /><link rel="next" title="Inline configuration" href="inline_config.html" /><link rel="prev" title="The mypy command line" href="command_line.html" />
-        <link rel="canonical" href="https://mypy.readthedocs.io/en/stable/config_file.html" />
 
     <meta name="generator" content="sphinx-4.5.0, furo 2022.09.29"/>
-        <title>The mypy configuration file - mypy 1.3.0 documentation</title>
+        <title>The mypy configuration file - mypy 1.4.1 documentation</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="_static/styles/furo.css?digest=d81277517bee4d6b0349d71bb2661d4890b5617c" />
     <link rel="stylesheet" type="text/css" href="/_/static/css/badge_only.css" />
@@ -41,7 +40,7 @@
 
 <link rel="stylesheet" href="/_/static/css/readthedocs-doc-embed.css" type="text/css" />
 
-<script type="application/json" id="READTHEDOCS_DATA">{"ad_free": false, "api_host": "https://readthedocs.org", "build_date": "2023-05-22T21:06:50Z", "builder": "sphinx", "canonical_url": null, "commit": "9df39ab1", "docroot": "/docs/source/", "features": {"docsearch_disabled": false}, "global_analytics_code": "UA-17997319-1", "language": "en", "page": "config_file", "programming_language": "py", "project": "mypy", "proxied_api_host": "/_", "source_suffix": ".rst", "subprojects": {}, "theme": "furo", "user_analytics_code": "", "version": "stable"}</script>
+<script type="application/json" id="READTHEDOCS_DATA">{"ad_free": false, "api_host": "https://readthedocs.org", "builder": "sphinx", "canonical_url": null, "docroot": "/docs/source/", "features": {"docsearch_disabled": false}, "global_analytics_code": "UA-17997319-1", "language": "en", "page": "config_file", "programming_language": "py", "project": "mypy", "proxied_api_host": "/_", "source_suffix": ".rst", "subprojects": {}, "theme": "furo", "user_analytics_code": "", "version": "stable"}</script>
 
 <!--
 Using this variable directly instead of using `JSON.parse` is deprecated.
@@ -143,7 +142,7 @@ READTHEDOCS_DATA = JSON.parse(document.getElementById('READTHEDOCS_DATA').innerH
       </label>
     </div>
     <div class="header-center">
-      <a href="index.html"><div class="brand">mypy 1.3.0 documentation</div></a>
+      <a href="index.html"><div class="brand">mypy 1.4.1 documentation</div></a>
     </div>
     <div class="header-right">
       <div class="theme-toggle-container theme-toggle-header">
@@ -169,7 +168,7 @@ READTHEDOCS_DATA = JSON.parse(document.getElementById('READTHEDOCS_DATA').innerH
     <img class="sidebar-logo" src="_static/mypy_light.svg" alt="Logo"/>
   </div>
   
-  <span class="sidebar-brand-text">mypy 1.3.0 documentation</span>
+  <span class="sidebar-brand-text">mypy 1.4.1 documentation</span>
   
 </a><form class="sidebar-search-container" method="get" action="search.html" role="search">
   <input class="sidebar-search" placeholder=Search name="q" aria-label="Search">
@@ -296,7 +295,7 @@ READTHEDOCS_DATA = JSON.parse(document.getElementById('READTHEDOCS_DATA').innerH
 
   
   <div class="edit-this-page">
-  <a class="muted-link" href="https://github.com/python/mypy/edit/9df39ab1801369cb49467fa52080df9c42377384/docs/source/config_file.rst" title="Edit this page">
+  <a class="muted-link" href="https://github.com/python/mypy/edit/3534bacc4c0d3c4b1983a533e2a36cce43f2ec9d/docs/source/config_file.rst" title="Edit this page">
     <svg aria-hidden="true" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
       <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
       <path d="M4 20h4l10.5 -10.5a1.5 1.5 0 0 0 -4 -4l-10.5 10.5v4" />
@@ -320,16 +319,24 @@ READTHEDOCS_DATA = JSON.parse(document.getElementById('READTHEDOCS_DATA').innerH
         <article role="main">
           <section id="the-mypy-configuration-file">
 <span id="config-file"></span><h1>The mypy configuration file<a class="headerlink" href="#the-mypy-configuration-file" title="Permalink to this headline">#</a></h1>
-<p>Mypy supports reading configuration settings from a file.  By default
-it uses the file <code class="docutils literal notranslate"><span class="pre">mypy.ini</span></code> with a fallback to <code class="docutils literal notranslate"><span class="pre">.mypy.ini</span></code>, then <code class="docutils literal notranslate"><span class="pre">pyproject.toml</span></code>,
-then <code class="docutils literal notranslate"><span class="pre">setup.cfg</span></code> in the current directory, then <code class="docutils literal notranslate"><span class="pre">$XDG_CONFIG_HOME/mypy/config</span></code>, then
-<code class="docutils literal notranslate"><span class="pre">~/.config/mypy/config</span></code>, and finally <code class="docutils literal notranslate"><span class="pre">.mypy.ini</span></code> in the user home directory
-if none of them are found; the <a class="reference internal" href="command_line.html#cmdoption-mypy-config-file"><code class="xref std std-option docutils literal notranslate"><span class="pre">--config-file</span></code></a> command-line flag can be used
-to read a different file instead (see <a class="reference internal" href="command_line.html#config-file-flag"><span class="std std-ref">Config file</span></a>).</p>
+<p>Mypy supports reading configuration settings from a file with the following precedence order:</p>
+<blockquote>
+<div><ol class="arabic simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">./mypy.ini</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">./.mypy.ini</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">./pyproject.toml</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">./setup.cfg</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">$XDG_CONFIG_HOME/mypy/config</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">~/.config/mypy/config</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">~/.mypy.ini</span></code></p></li>
+</ol>
+</div></blockquote>
 <p>It is important to understand that there is no merging of configuration
-files, as it would lead to ambiguity.  The <a class="reference internal" href="command_line.html#cmdoption-mypy-config-file"><code class="xref std std-option docutils literal notranslate"><span class="pre">--config-file</span></code></a> flag
-has the highest precedence and must be correct; otherwise mypy will report
-an error and exit.  Without command line option, mypy will look for configuration files in the above mentioned order.</p>
+files, as it would lead to ambiguity. The <a class="reference internal" href="command_line.html#cmdoption-mypy-config-file"><code class="xref std std-option docutils literal notranslate"><span class="pre">--config-file</span></code></a>
+command-line flag has the highest precedence and
+must be correct; otherwise mypy will report an error and exit. Without the
+command line option, mypy will look for configuration files in the
+precedence order above.</p>
 <p>Most flags correspond closely to <a class="reference internal" href="command_line.html#command-line"><span class="std std-ref">command-line flags</span></a> but there are some differences in flag names and some
 flags may take a different value based on the module being processed.</p>
 <p>Some flags support user home directory and environment variable expansion.
@@ -404,8 +411,8 @@ may only be set in the global section (<code class="docutils literal notranslate
 their name or by (when applicable) swapping their prefix from
 <code class="docutils literal notranslate"><span class="pre">disallow</span></code> to <code class="docutils literal notranslate"><span class="pre">allow</span></code> (and vice versa).</p>
 </section>
-<section id="examples">
-<h2>Examples<a class="headerlink" href="#examples" title="Permalink to this headline">#</a></h2>
+<section id="example-mypy-ini">
+<h2>Example <code class="docutils literal notranslate"><span class="pre">mypy.ini</span></code><a class="headerlink" href="#example-mypy-ini" title="Permalink to this headline">#</a></h2>
 <p>Here is an example of a <code class="docutils literal notranslate"><span class="pre">mypy.ini</span></code> file. To use this config file, place it at the root
 of your repo and run mypy.</p>
 <div class="highlight-ini notranslate"><div class="highlight"><pre><span></span><span class="c1"># Global options:</span>
@@ -693,7 +700,7 @@ the executable used to run mypy.</p>
 <span class="sig-name descname"><span class="pre">no_site_packages</span></span><a class="headerlink" href="#confval-no_site_packages" title="Permalink to this definition">#</a></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Type</dt>
-<dd class="field-odd"><p>bool</p>
+<dd class="field-odd"><p>boolean</p>
 </dd>
 <dt class="field-even">Default</dt>
 <dd class="field-even"><p>False</p>
@@ -903,7 +910,8 @@ annotations.</p>
 </dd>
 </dl>
 <p>Disallows defining functions without type annotations or with incomplete type
-annotations.</p>
+annotations (a superset of <a class="reference internal" href="#confval-disallow_incomplete_defs"><code class="xref std std-confval docutils literal notranslate"><span class="pre">disallow_incomplete_defs</span></code></a>).</p>
+<p>For example, it would report an error for <code class="code docutils literal notranslate"><span class="pre">def</span> <span class="pre">f(a,</span> <span class="pre">b)</span></code> and <code class="code docutils literal notranslate"><span class="pre">def</span> <span class="pre">f(a:</span> <span class="pre">int,</span> <span class="pre">b)</span></code>.</p>
 </dd></dl>
 
 <dl class="std confval">
@@ -917,7 +925,9 @@ annotations.</p>
 <dd class="field-even"><p>False</p>
 </dd>
 </dl>
-<p>Disallows defining functions with incomplete type annotations.</p>
+<p>Disallows defining functions with incomplete type annotations, while still
+allowing entirely unannotated definitions.</p>
+<p>For example, it would report an error for <code class="code docutils literal notranslate"><span class="pre">def</span> <span class="pre">f(a:</span> <span class="pre">int,</span> <span class="pre">b)</span></code> but not <code class="code docutils literal notranslate"><span class="pre">def</span> <span class="pre">f(a,</span> <span class="pre">b)</span></code>.</p>
 </dd></dl>
 
 <dl class="std confval">
@@ -1883,7 +1893,7 @@ of your repo (or append it to the end of an existing <code class="docutils liter
 <li><a class="reference internal" href="#config-file-format">Config file format</a></li>
 <li><a class="reference internal" href="#per-module-and-global-options">Per-module and global options</a></li>
 <li><a class="reference internal" href="#inverting-option-values">Inverting option values</a></li>
-<li><a class="reference internal" href="#examples">Examples</a></li>
+<li><a class="reference internal" href="#example-mypy-ini">Example <code class="docutils literal notranslate"><span class="pre">mypy.ini</span></code></a></li>
 <li><a class="reference internal" href="#import-discovery">Import discovery</a></li>
 <li><a class="reference internal" href="#platform-configuration">Platform configuration</a></li>
 <li><a class="reference internal" href="#disallow-dynamic-typing">Disallow dynamic typing</a></li>
