@@ -6,7 +6,7 @@
 <link rel="index" title="Index" href="genindex.html" /><link rel="search" title="Search" href="search.html" /><link rel="next" title="Inline configuration" href="inline_config.html" /><link rel="prev" title="The mypy command line" href="command_line.html" />
 
     <meta name="generator" content="sphinx-4.5.0, furo 2022.09.29"/>
-        <title>The mypy configuration file - mypy 1.5.1 documentation</title>
+        <title>The mypy configuration file - mypy 1.6.1 documentation</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="_static/styles/furo.css?digest=d81277517bee4d6b0349d71bb2661d4890b5617c" />
     <link rel="stylesheet" type="text/css" href="/_/static/css/badge_only.css" />
@@ -142,7 +142,7 @@ READTHEDOCS_DATA = JSON.parse(document.getElementById('READTHEDOCS_DATA').innerH
       </label>
     </div>
     <div class="header-center">
-      <a href="index.html"><div class="brand">mypy 1.5.1 documentation</div></a>
+      <a href="index.html"><div class="brand">mypy 1.6.1 documentation</div></a>
     </div>
     <div class="header-right">
       <div class="theme-toggle-container theme-toggle-header">
@@ -168,7 +168,7 @@ READTHEDOCS_DATA = JSON.parse(document.getElementById('READTHEDOCS_DATA').innerH
     <img class="sidebar-logo" src="_static/mypy_light.svg" alt="Logo"/>
   </div>
   
-  <span class="sidebar-brand-text">mypy 1.5.1 documentation</span>
+  <span class="sidebar-brand-text">mypy 1.6.1 documentation</span>
   
 </a><form class="sidebar-search-container" method="get" action="search.html" role="search">
   <input class="sidebar-search" placeholder=Search name="q" aria-label="Search">
@@ -295,7 +295,7 @@ READTHEDOCS_DATA = JSON.parse(document.getElementById('READTHEDOCS_DATA').innerH
 
   
   <div class="edit-this-page">
-  <a class="muted-link" href="https://github.com/python/mypy/edit/de4f2ad99c88b885677247534dcec335621ade4d/docs/source/config_file.rst" title="Edit this page">
+  <a class="muted-link" href="https://github.com/python/mypy/edit/9b891fe5a101ecbb818f3f16641ab909f289ba04/docs/source/config_file.rst" title="Edit this page">
     <svg aria-hidden="true" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
       <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
       <path d="M4 20h4l10.5 -10.5a1.5 1.5 0 0 0 -4 -4l-10.5 10.5v4" />
@@ -345,7 +345,7 @@ To expand environment variables use <code class="docutils literal notranslate"><
 <section id="config-file-format">
 <h2>Config file format<a class="headerlink" href="#config-file-format" title="Permalink to this headline">#</a></h2>
 <p>The configuration file format is the usual
-<a class="reference external" href="https://docs.python.org/3/library/configparser.html" title="(in Python v3.11)"><span class="xref std std-doc">ini file</span></a> format. It should contain
+<a class="reference external" href="https://docs.python.org/3/library/configparser.html" title="(in Python v3.12)"><span class="xref std std-doc">ini file</span></a> format. It should contain
 section names in square brackets and flag settings of the form
 <cite>NAME = VALUE</cite>. Comments start with <code class="docutils literal notranslate"><span class="pre">#</span></code> characters.</p>
 <ul>
@@ -489,7 +489,7 @@ the config file (e.g. <code class="docutils literal notranslate"><span class="pr
 </dd>
 </dl>
 <p>A comma-separated list of paths which should be checked by mypy if none are given on the command
-line. Supports recursive file globbing using <a class="reference external" href="https://docs.python.org/3/library/glob.html#module-glob" title="(in Python v3.11)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">glob</span></code></a>, where <code class="docutils literal notranslate"><span class="pre">*</span></code> (e.g. <code class="docutils literal notranslate"><span class="pre">*.py</span></code>) matches
+line. Supports recursive file globbing using <a class="reference external" href="https://docs.python.org/3/library/glob.html#module-glob" title="(in Python v3.12)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">glob</span></code></a>, where <code class="docutils literal notranslate"><span class="pre">*</span></code> (e.g. <code class="docutils literal notranslate"><span class="pre">*.py</span></code>) matches
 files in the current directory and <code class="docutils literal notranslate"><span class="pre">**/</span></code> (e.g. <code class="docutils literal notranslate"><span class="pre">**/*.py</span></code>) matches files in any directories below
 the current one. User home directory and environment variables will be expanded.</p>
 <p>This option may only be set in the global section (<code class="docutils literal notranslate"><span class="pre">[mypy]</span></code>).</p>
@@ -759,7 +759,7 @@ interpreter used to run mypy.</p>
 <p>Specifies the OS platform for the target program, for example
 <code class="docutils literal notranslate"><span class="pre">darwin</span></code> or <code class="docutils literal notranslate"><span class="pre">win32</span></code> (meaning OS X or Windows, respectively).
 The default is the current platform as revealed by Python’s
-<a class="reference external" href="https://docs.python.org/3/library/sys.html#sys.platform" title="(in Python v3.11)"><code class="xref py py-data docutils literal notranslate"><span class="pre">sys.platform</span></code></a> variable.</p>
+<a class="reference external" href="https://docs.python.org/3/library/sys.html#sys.platform" title="(in Python v3.12)"><code class="xref py py-data docutils literal notranslate"><span class="pre">sys.platform</span></code></a> variable.</p>
 <p>This option may only be set in the global section (<code class="docutils literal notranslate"><span class="pre">[mypy]</span></code>).</p>
 </dd></dl>
 
@@ -895,7 +895,40 @@ section of the command line docs.</p>
 </dd>
 </dl>
 <p>Disallows calling functions without type annotations from functions with type
-annotations.</p>
+annotations. Note that when used in per-module options, it enables/disables
+this check <strong>inside</strong> the module(s) specified, not for functions that come
+from that module(s), for example config like this:</p>
+<div class="highlight-ini notranslate"><div class="highlight"><pre><span></span><span class="k">[mypy]</span>
+<span class="na">disallow_untyped_calls</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">True</span>
+
+<span class="k">[mypy-some.library.*]</span>
+<span class="na">disallow_untyped_calls</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">False</span>
+</pre></div>
+</div>
+<p>will disable this check inside <code class="docutils literal notranslate"><span class="pre">some.library</span></code>, not for your code that
+imports <code class="docutils literal notranslate"><span class="pre">some.library</span></code>. If you want to selectively disable this check for
+all your code that imports <code class="docutils literal notranslate"><span class="pre">some.library</span></code> you should instead use
+<a class="reference internal" href="#confval-untyped_calls_exclude"><code class="xref std std-confval docutils literal notranslate"><span class="pre">untyped_calls_exclude</span></code></a>, for example:</p>
+<div class="highlight-ini notranslate"><div class="highlight"><pre><span></span><span class="k">[mypy]</span>
+<span class="na">disallow_untyped_calls</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">True</span>
+<span class="na">untyped_calls_exclude</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">some.library</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="std confval">
+<dt class="sig sig-object std" id="confval-untyped_calls_exclude">
+<span class="sig-name descname"><span class="pre">untyped_calls_exclude</span></span><a class="headerlink" href="#confval-untyped_calls_exclude" title="Permalink to this definition">#</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>comma-separated list of strings</p>
+</dd>
+</dl>
+<p>Selectively excludes functions and methods defined in specific packages,
+modules, and classes from action of <a class="reference internal" href="#confval-disallow_untyped_calls"><code class="xref std std-confval docutils literal notranslate"><span class="pre">disallow_untyped_calls</span></code></a>.
+This also applies to all submodules of packages (i.e. everything inside
+a given prefix). Note, this option does not support per-file configuration,
+the exclusions list is defined globally for all your code.</p>
 </dd></dl>
 
 <dl class="std confval">
@@ -976,7 +1009,7 @@ section of the command line docs.</p>
 </dd>
 </dl>
 <p>Causes mypy to treat arguments with a <code class="docutils literal notranslate"><span class="pre">None</span></code>
-default value as having an implicit <a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Optional" title="(in Python v3.11)"><code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code></a> type.</p>
+default value as having an implicit <a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Optional" title="(in Python v3.12)"><code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code></a> type.</p>
 <p><strong>Note:</strong> This was True by default in mypy versions 0.980 and earlier.</p>
 </dd></dl>
 
@@ -1485,7 +1518,7 @@ check and regenerate the cache if it was written by older versions of mypy.)</p>
 <dd class="field-even"><p>False</p>
 </dd>
 </dl>
-<p>Invokes <a class="reference external" href="https://docs.python.org/3/library/pdb.html#module-pdb" title="(in Python v3.11)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pdb</span></code></a> on fatal error.</p>
+<p>Invokes <a class="reference external" href="https://docs.python.org/3/library/pdb.html#module-pdb" title="(in Python v3.12)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pdb</span></code></a> on fatal error.</p>
 </dd></dl>
 
 <dl class="std confval">
@@ -1524,7 +1557,7 @@ check and regenerate the cache if it was written by older versions of mypy.)</p>
 <dd class="field-odd"><p>string</p>
 </dd>
 </dl>
-<p>Specifies a custom module to use as a substitute for the <a class="reference external" href="https://docs.python.org/3/library/typing.html#module-typing" title="(in Python v3.11)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">typing</span></code></a> module.</p>
+<p>Specifies a custom module to use as a substitute for the <a class="reference external" href="https://docs.python.org/3/library/typing.html#module-typing" title="(in Python v3.12)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">typing</span></code></a> module.</p>
 </dd></dl>
 
 <dl class="std confval">
