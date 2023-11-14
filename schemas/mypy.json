@@ -668,6 +668,32 @@
         }
       }
     },
+    "force_uppercase_builtins": {
+      "description": "Always use List instead of list in error messages, even on Python 3.9+.",
+      "type": ["boolean", "null"],
+      "items": {
+        "type": "boolean"
+      },
+      "default": false,
+      "x-taplo": {
+        "links": {
+          "key": "https://mypy.readthedocs.io/en/stable/config_file.html#confval-force_uppercase_builtins"
+        }
+      }
+    },
+    "force_union_syntax": {
+      "description": "Specifies the location where mypy stores incremental cache info. User home directory and environment variables will be expanded. This setting will be overridden by the MYPY_CACHE_DIR environment variable.\n\nNote that the cache is only read when incremental mode is enabled but is always written to, unless the value is set to /dev/null (UNIX) or nul (Windows).",
+      "type": ["boolean", "null"],
+      "items": {
+        "type": "boolean"
+      },
+      "default": false,
+      "x-taplo": {
+        "links": {
+          "key": "https://mypy.readthedocs.io/en/stable/config_file.html#confval-force_union_syntax"
+        }
+      }
+    },
     "incremental": {
       "description": "Enables incremental mode.",
       "type": ["boolean", "null"],
