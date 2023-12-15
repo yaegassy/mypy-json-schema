@@ -6,7 +6,7 @@
 <link rel="index" title="Index" href="genindex.html" /><link rel="search" title="Search" href="search.html" /><link rel="next" title="Inline configuration" href="inline_config.html" /><link rel="prev" title="The mypy command line" href="command_line.html" />
 
     <meta name="generator" content="sphinx-4.5.0, furo 2022.09.29"/>
-        <title>The mypy configuration file - mypy 1.7.0 documentation</title>
+        <title>The mypy configuration file - mypy 1.7.1 documentation</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="_static/styles/furo.css?digest=d81277517bee4d6b0349d71bb2661d4890b5617c" />
     <link rel="stylesheet" type="text/css" href="/_/static/css/badge_only.css" />
@@ -142,7 +142,7 @@ READTHEDOCS_DATA = JSON.parse(document.getElementById('READTHEDOCS_DATA').innerH
       </label>
     </div>
     <div class="header-center">
-      <a href="index.html"><div class="brand">mypy 1.7.0 documentation</div></a>
+      <a href="index.html"><div class="brand">mypy 1.7.1 documentation</div></a>
     </div>
     <div class="header-right">
       <div class="theme-toggle-container theme-toggle-header">
@@ -168,7 +168,7 @@ READTHEDOCS_DATA = JSON.parse(document.getElementById('READTHEDOCS_DATA').innerH
     <img class="sidebar-logo" src="_static/mypy_light.svg" alt="Logo"/>
   </div>
   
-  <span class="sidebar-brand-text">mypy 1.7.0 documentation</span>
+  <span class="sidebar-brand-text">mypy 1.7.1 documentation</span>
   
 </a><form class="sidebar-search-container" method="get" action="search.html" role="search">
   <input class="sidebar-search" placeholder=Search name="q" aria-label="Search">
@@ -295,7 +295,7 @@ READTHEDOCS_DATA = JSON.parse(document.getElementById('READTHEDOCS_DATA').innerH
 
   
   <div class="edit-this-page">
-  <a class="muted-link" href="https://github.com/python/mypy/edit/f6b9972329d5d68f6defc92a10cc4c3bc339c27b/docs/source/config_file.rst" title="Edit this page">
+  <a class="muted-link" href="https://github.com/python/mypy/edit/6b3c41838d8e7a39242b6fd035535e2d76eabfc6/docs/source/config_file.rst" title="Edit this page">
     <svg aria-hidden="true" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
       <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
       <path d="M4 20h4l10.5 -10.5a1.5 1.5 0 0 0 -4 -4l-10.5 10.5v4" />
@@ -559,19 +559,19 @@ equivalent to the above INI example.</p>
 <p>Array of strings:</p>
 <div class="highlight-toml notranslate"><div class="highlight"><pre><span></span><span class="k">[tool.mypy]</span>
 <span class="n">exclude</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span>
-<span class="w">    </span><span class="s">&quot;^one\\.py$&quot;</span><span class="p">,</span><span class="w">  </span><span class="c1"># TOML&#39;s double-quoted strings require escaping backslashes</span>
-<span class="w">    </span><span class="s">&#39;two\.pyi$&#39;</span><span class="p">,</span><span class="w">  </span><span class="c1"># but TOML&#39;s single-quoted strings do not</span>
-<span class="w">    </span><span class="s">&#39;^three\.&#39;</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">&quot;^one</span><span class="se">\\</span><span class="s2">.py$&quot;</span><span class="p">,</span><span class="w">  </span><span class="c1"># TOML&#39;s double-quoted strings require escaping backslashes</span>
+<span class="w">    </span><span class="s1">&#39;two\.pyi$&#39;</span><span class="p">,</span><span class="w">  </span><span class="c1"># but TOML&#39;s single-quoted strings do not</span>
+<span class="w">    </span><span class="s1">&#39;^three\.&#39;</span><span class="p">,</span>
 <span class="p">]</span>
 </pre></div>
 </div>
 <p>A single, multi-line string:</p>
 <div class="highlight-toml notranslate"><div class="highlight"><pre><span></span><span class="k">[tool.mypy]</span>
-<span class="n">exclude</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&#39;&#39;&#39;(?x)(</span>
-<span class="s">    ^one\.py$    # files named &quot;one.py&quot;</span>
-<span class="s">    | two\.pyi$  # or files ending with &quot;two.pyi&quot;</span>
-<span class="s">    | ^three\.   # or files starting with &quot;three.&quot;</span>
-<span class="s">)&#39;&#39;&#39;</span><span class="w">  </span><span class="c1"># TOML&#39;s single-quoted strings do not require escaping backslashes</span>
+<span class="n">exclude</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;&#39;&#39;(?x)(</span>
+<span class="s1">    ^one\.py$    # files named &quot;one.py&quot;</span>
+<span class="s1">    | two\.pyi$  # or files ending with &quot;two.pyi&quot;</span>
+<span class="s1">    | ^three\.   # or files starting with &quot;three.&quot;</span>
+<span class="s1">)&#39;&#39;&#39;</span><span class="w">  </span><span class="c1"># TOML&#39;s single-quoted strings do not require escaping backslashes</span>
 </pre></div>
 </div>
 <p>See <a class="reference internal" href="#using-a-pyproject-toml"><span class="std std-ref">Using a pyproject.toml file</span></a>.</p>
@@ -1820,7 +1820,7 @@ match any files processed when invoking mypy.
 </li>
 </ul>
 <div class="highlight-toml notranslate"><div class="highlight"><pre><span></span><span class="k">[[tool.mypy.overrides]]</span>
-<span class="n">module</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&#39;packagename&#39;</span>
+<span class="n">module</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;packagename&#39;</span>
 <span class="p">...</span>
 </pre></div>
 </div>
@@ -1834,8 +1834,8 @@ module property set to an array of modules:</p>
 </ul>
 <div class="highlight-toml notranslate"><div class="highlight"><pre><span></span><span class="k">[[tool.mypy.overrides]]</span>
 <span class="n">module</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span>
-<span class="w">    </span><span class="s">&#39;packagename&#39;</span><span class="p">,</span>
-<span class="w">    </span><span class="s">&#39;packagename2&#39;</span>
+<span class="w">    </span><span class="s1">&#39;packagename&#39;</span><span class="p">,</span>
+<span class="w">    </span><span class="s1">&#39;packagename2&#39;</span>
 <span class="p">]</span>
 <span class="p">...</span>
 </pre></div>
@@ -1859,28 +1859,28 @@ of your repo (or append it to the end of an existing <code class="docutils liter
 <div class="highlight-toml notranslate"><div class="highlight"><pre><span></span><span class="c1"># mypy global options:</span>
 
 <span class="k">[tool.mypy]</span>
-<span class="n">python_version</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;2.7&quot;</span>
+<span class="n">python_version</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;2.7&quot;</span>
 <span class="n">warn_return_any</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span>
 <span class="n">warn_unused_configs</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span>
 <span class="n">exclude</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span>
-<span class="w">    </span><span class="s">&#39;^file1\.py$&#39;</span><span class="p">,</span><span class="w">  </span><span class="c1"># TOML literal string (single-quotes, no escaping necessary)</span>
-<span class="w">    </span><span class="s">&quot;^file2\\.py$&quot;</span><span class="p">,</span><span class="w">  </span><span class="c1"># TOML basic string (double-quotes, backslash and other characters need escaping)</span>
+<span class="w">    </span><span class="s1">&#39;^file1\.py$&#39;</span><span class="p">,</span><span class="w">  </span><span class="c1"># TOML literal string (single-quotes, no escaping necessary)</span>
+<span class="w">    </span><span class="s2">&quot;^file2</span><span class="se">\\</span><span class="s2">.py$&quot;</span><span class="p">,</span><span class="w">  </span><span class="c1"># TOML basic string (double-quotes, backslash and other characters need escaping)</span>
 <span class="p">]</span>
 
 <span class="c1"># mypy per-module options:</span>
 
 <span class="k">[[tool.mypy.overrides]]</span>
-<span class="n">module</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;mycode.foo.*&quot;</span>
+<span class="n">module</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;mycode.foo.*&quot;</span>
 <span class="n">disallow_untyped_defs</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span>
 
 <span class="k">[[tool.mypy.overrides]]</span>
-<span class="n">module</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;mycode.bar&quot;</span>
+<span class="n">module</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;mycode.bar&quot;</span>
 <span class="n">warn_return_any</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">false</span>
 
 <span class="k">[[tool.mypy.overrides]]</span>
 <span class="n">module</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span>
-<span class="w">    </span><span class="s">&quot;somelibrary&quot;</span><span class="p">,</span>
-<span class="w">    </span><span class="s">&quot;some_other_library&quot;</span>
+<span class="w">    </span><span class="s2">&quot;somelibrary&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">&quot;some_other_library&quot;</span>
 <span class="p">]</span>
 <span class="n">ignore_missing_imports</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span>
 </pre></div>
